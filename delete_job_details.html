@@ -1,0 +1,54 @@
+{% extends 'navbar/employernavbar.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'path/to/bootstrap/css/bootstrap.min.css' %}">
+</head>
+<body>
+{% block body %}
+
+<style>
+
+    body{
+    background-color: #e7f3ff;
+    }
+    .card{
+    border:2px solid #4F6F8F;
+    }
+    .btn-danger {
+        background-color: #E31837;
+        color: white;
+        border: 2px solid #E31837;
+        font-weight: bold;
+        border-radius: 10px;
+    }
+
+    .btn-danger:hover {
+        background-color: #E31837;
+        border-color: #E31837;
+        transition: 0.3s ease;
+    }
+</style>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <p>Are you sure you want to delete "{{ job_details.work_title }}"?</p>
+                    <form method="post" action="{% url 'employermodule:delete_job_details' job_details.id %}">
+                        {% csrf_token %}
+
+                        <button type="submit" class="btn btn-danger">Delete</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+</body>
+</html>

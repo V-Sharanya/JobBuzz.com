@@ -1,0 +1,159 @@
+{% extends 'Navbar/jobseekernavbar.html' %}
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+    <title>Apply to Job</title>
+
+</head>
+<body>
+
+{% block body %}
+
+
+<style>
+        body {
+             background-color: #e7f3ff;
+
+            color: #333;
+        }
+
+        h2 {
+            text-align: center;
+            color: #007bff;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-title {
+            color: #007bff;  /* Blue accent color for the title */
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+
+        .card-text {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .card-text strong {
+            color: #333;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            color: #555;
+        }
+        input{
+        margin-bottom:15px;
+        }
+
+        .form-control {
+            border-radius: 5px;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+            font-size: 16px;
+        }
+
+        .btn-success {
+            background-color: #007bff;  /* Blue button for consistency */
+            border-color: #007bff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .btn-success:hover {
+            background-color: #0056b3;  /* Darker blue on hover */
+            border-color: #0056b3;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            font-size: 16px;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 14px;
+            color: #aaa;
+        }
+    </style>
+
+
+<div class="container">
+    <h2>Apply to Job</h2>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ job_details.work_title }}</h5>
+                    <p class="card-text">
+                        <strong>Salary Offered:</strong> {{ job_details.salary_offered }}<br>
+                        <strong>Job Type:</strong> {{ job_details.get_job_type_display }}<br>
+                        <strong>Benefits:</strong> {{ job_details.benefits }}<br>
+                        <strong>Education Requirements:</strong> {{ job_details.education }}<br>
+                        <strong>Work Location:</strong> {{ job_details.work_location }}<br>
+                        <strong>Required Skills:</strong> {{ job_details.required_skills }}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <!-- Hidden field to store the job_id -->
+                <input type="hidden" name="job_id" value="{{ job_details.id }}">
+
+                <div class="form-group">
+                    <label for="name">Your Name:</label>
+                    <input type="text" class="form-control" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Your Email:</label>
+                    <input type="email" class="form-control" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="resume">Upload Resume:</label>
+                    <input type="file" class="form-control-file" name="resume" accept=".pdf, .doc, .docx" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="cover_letter">Cover Letter:</label>
+                    <textarea class="form-control" name="cover_letter" required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-success">Apply to this job</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+</body>
+</html>

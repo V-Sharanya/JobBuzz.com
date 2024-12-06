@@ -1,0 +1,94 @@
+{% extends 'Navbar/employernavbar.html' %}
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Job Post</title>
+</head>
+<body>
+{% block body %}
+<style>
+    input,select,textarea,button{
+    margin-bottom:15px;
+
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        border: 1px solid #357ed9;
+        border-radius: 10px;
+        padding: 8px;
+    }
+    body{
+    background-color: #e7f3ff;
+    }
+    span{
+    color:#357ed9;
+    font-weight:bold;
+    font-size:25px;
+    }
+     .btn-primary {
+        background-color: #357ed9;
+        color: white;
+        border: 2px solid #357ed9;
+        font-weight: bold;
+        border-radius: 10px;
+    }
+
+    .btn-primary:hover {
+        background-color: #285ea3;
+        border-color: #285ea3;
+        transition: 0.3s ease;
+    }
+</style>
+<div>
+    <div class="container mt-3">
+        <h3> <span>Job Details</span> Form</h3>
+        <br/>
+        <form method="post" action="{% url 'employermodule:add_job_details' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for = "workTitle">Work Title</label>
+                <input type="text" class="form-control" name="workTitle" id="workTitle" placeholder="Enter the work title">
+            </div>
+
+            <div class="form-group">
+                <label for = "salaryOffered">Salary Offered</label>
+                <input type="text" class="form-control" name="salaryOffered" id="salaryOffered" placeholder="Enter the Salary Offered">
+            </div>
+
+            <div class="form-group">
+                <label for = "jobType">Job Type</label>
+                <select class="form-control" name="jobType" id="jobType">
+                    <option value="fulltime">Full-Time</option>
+                    <option value="partTime">Part-Time</option>
+                    <option value="contract">Contract</option>
+                </select></div>
+                <div class="form-group">
+                    <label for="benefits">Benefits</label>
+                    <textarea class="form-control" name="benefits" id="benefits" rows="2" placeholder="Enter the benenfits"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for = "education">Education</label>
+                    <input type="text" class="form-control" name="education" id="education" placeholder="Enter the education level">
+                </div>
+                <div class="form-group">
+                    <label for = "requiredSkills">Required Skills</label>
+                    <textarea class="form-control" name="requiredSkills" id="requiredSkills" rows="2" placeholder="Enter the required skills"></textarea>
+
+                </div>
+                <div class="form-group">
+                    <label for = "workLocation">Work Location</label>
+                    <input type="text" class="form-control" name="workLocation" id="workLocation" placeholder="Enter your preffered work location">
+                </div>
+
+            <button type="submit" class="btn btn-primary">Post the Job</button>
+            <br/><br/><br/>
+
+        </form>
+    </div>
+</div>
+{% endblock %}
+</body>
+</html>

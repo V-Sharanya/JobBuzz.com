@@ -1,0 +1,241 @@
+{% extends 'Navbar/employernavbar.html' %}
+{% load static %}
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JobBuzz.com</title>
+</head>
+<body>
+{% block body %}
+
+<style>
+  body{
+  background-color: #e7f3ff;
+  }
+  .container{
+    display:flex;
+    padding:10px;
+    width:100%;
+    }
+    .left{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    width:60%;
+    }
+    .left h1{
+    letter-spacing:2px;
+    font-size:65px;
+    }
+    .left h1 span{
+    font-size:45px;
+    }
+    .left h4{
+    color:#7b8692;
+    font-size:20px;
+    margin-top:25px;
+    }
+    .container1{
+    display:flex;
+    padding:10px;
+    width:100%;
+    }
+    .container1 .box{
+    padding:20px 40px;
+    text-align:center;
+    width:100%;
+    }
+    .box h1 span{
+    font-size:35px;
+    }
+    .jobs{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    }
+    .card{
+    width:45%;
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+    margin:2%;
+    padding:10px;
+    cursor:pointer;
+    border:solid 2px #7b8692 ;
+    border-radius:20px;
+    }
+    .card img{
+    width:100px;
+    height:100px;
+    }
+    .card .card-body{
+    display:flex;
+    flex-direction:row;
+    }
+    .jobs .card:hover{
+    color:#2b7add;
+    border-color:#2b7add;
+    transform: scale(1.05);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .carousel-item{
+    justify-content:center;
+    text-align:center;
+    align-items:center;
+    margin-bottom:40px;
+    }
+    .carousel-item .card{
+    width:50%;
+    height:90%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    margin:auto;
+    }
+    .carousel-item .card .card-body{
+    display:flex;
+    flex-direction:column;
+    }
+    h4{
+    color:#7b8692;
+    margin-bottom:50px;
+    }
+    .carousel-item .card .card-body h2{
+    margin:auto;
+    }
+    .carousel-item .card .card-body h5{
+    color:#357ed9;
+    font-size:30px;
+    }
+    .carousel-item .card .card-body p{
+    color:#7b8692;
+    }
+    .container1 .left{
+    width:40%;
+    }
+    .container1 .right span{
+    font-size:50px;
+    }
+    .container1 .right{
+    margin:auto;
+    }
+    #sticky-footer{
+
+  bottom:0;
+  left:0;
+  right:0;
+  background-color:#357ed9;
+  color:white;
+
+</style>
+
+<div class="container">
+    <div class="left">
+        <h1>There are <span> 1000+ </span>Job<br /> <span>opportunities</span> for you<br /></h1>
+        <h4>Find Jobs, Employment and Career opportunities</h4>
+
+    </div>
+    <div class="right">
+        <img src="{% static 'images/finding_job-removebg-preview.png' %}"/>
+
+    </div>
+</div>
+
+<div class="container1" style="background-color:white;">
+    <div class="box">
+        <h1>Find Jobs in <span>Categories</span></h1>
+        <div class="jobs">
+            <div class="card" style="width: 18rem;">
+               <img src="{% static 'images/accounting.png' %}" class="card-img-top" alt="...">
+               <div class="card-body">
+                  <h5 class="card-title">Accounts and Finance</h5>
+               </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+               <img src="{% static 'images/network.png' %}" class="card-img-top" alt="...">
+               <div class="card-body">
+                  <h5 class="card-title">Marketing and Sales</h5>
+
+               </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+               <img src="{% static 'images/search.png' %}" class="card-img-top" alt="...">
+               <div class="card-body">
+                  <h5 class="card-title">Human Resource</h5>
+
+               </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+               <img src="{% static 'images/operation.png' %}" class="card-img-top" alt="...">
+               <div class="card-body">
+                  <h5 class="card-title">Operations</h5>
+
+               </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+               <img src="{% static 'images/app-design.png' %}" class="card-img-top" alt="...">
+               <div class="card-body">
+                  <h5 class="card-title">Development</h5>
+
+               </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+               <img src="{% static 'images/cloud.png' %}" class="card-img-top" alt="...">
+               <div class="card-body">
+                  <h5 class="card-title">AI and ML (Cloud)</h5>
+
+               </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+               <img src="{% static 'images/web-design.png' %}" class="card-img-top" alt="...">
+               <div class="card-body">
+                  <h5 class="card-title">Designing</h5>
+
+               </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+               <img src="{% static 'images/settings.png' %}" class="card-img-top" alt="...">
+               <div class="card-body">
+                  <h5 class="card-title">Information Technology (IT)</h5>
+
+               </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+               <img src="{% static 'images/heartbeat.png' %}" class="card-img-top" alt="...">
+               <div class="card-body">
+                  <h5 class="card-title">Healthcare and Medical</h5>
+               </div>
+            </div>
+        </div>
+        <h1> <span style="font-size:20px">Explore More</span></h1>
+    </div>
+</div>
+
+
+<div class="container1" style="background-color:white;">
+    <div class="left">
+        <img src="{% static 'images/steps.png' %}"/>
+    </div>
+    <div class="right">
+        <h1><span> 3 </span> Easy steps to Apply</h1><br/>
+        <h4>
+            <img src="{% static 'images/check.png' %}" width="20px" height="20px" style="margin-right:10px;">Search for relevant Jobs in your field<br/><br/>
+            <img src="{% static 'images/check.png' %}" width="20px" height="20px" style="margin-right:10px;">Fill application form and attach resume<br/><br/>
+            <img src="{% static 'images/check.png' %}" width="20px" height="20px" style="margin-right:10px;">Use our experts advice and follow up.</h4>
+
+    </div>
+</div>
+
+<footer id = "sticky-footer" class="flex-shrink-0 py-2">
+  <div class="container text-center">
+    <small>JobBuzz.com - All rights reserved.</small>
+  </div>
+</footer>
+
+{% endblock %}
+
+
+</body>
+</html>
